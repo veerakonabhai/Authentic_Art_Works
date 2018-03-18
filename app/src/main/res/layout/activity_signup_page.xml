@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.home.authentic_art_works.SignupPage">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:id="@+id/div_linear"
+            android:background="@drawable/div_top">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:id="@+id/btn_lyt"
+                android:layout_marginTop="15dp">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="STEP-1"
+                    android:background="@drawable/page1left"
+                    android:id="@+id/p2_step1"
+                    android:clickable="false"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:background="@drawable/page1right"
+                    android:text="STEP-2"
+                    android:id="@+id/p2_step2"
+
+                    />
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/signup_text"
+                android:layout_below="@id/btn_lyt"
+                    android:text="Let's Signup by verifying your number"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"/>
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/signup_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/div_linear"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:hint="Enter Name"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/signup_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signup_name"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress"
+            android:padding="5dp"
+            android:textSize="20sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/numberlinear"
+        android:layout_below="@id/signup_email"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp">
+        <com.rilixtech.CountryCodePicker
+            android:id="@+id/ccp"
+            app:ccp_textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            />
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/phone_number_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="phone"
+            android:layout_toRightOf="@id/ccp"
+            android:inputType="phone"
+            />
+    </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/otp_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/numberlinear"
+            android:background="@drawable/button1"
+            android:padding="15dp"
+            android:layout_centerHorizontal="true"
+            android:text="Verify Using OTP"
+            android:onClick="onButton"/>
+
+
+
+</RelativeLayout>
