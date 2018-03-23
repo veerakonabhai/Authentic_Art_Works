@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#66a3ff"
     tools:context="com.example.home.authentic_art_works.SignupPage2">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="vertical"
-        android:id="@+id/div_linear"
-        android:background="@drawable/div_top">
+        android:id="@+id/div_linear">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -18,7 +18,7 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:id="@+id/btn_lyt"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="40dp">
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -27,6 +27,7 @@
                 android:clickable="false"
                 android:background="@drawable/page2left"
                 android:id="@+id/p2_step1"
+                android:layout_marginTop="15dp"
             />
             <Button
                 android:layout_width="0dp"
@@ -36,6 +37,7 @@
                 android:background="@drawable/page2right"
                 android:text="STEP-2"
                 android:id="@+id/p2_step2"
+                android:layout_marginTop="15dp"
                 />
         </LinearLayout>
         <TextView
@@ -45,33 +47,44 @@
             android:id="@+id/signup_txt2"
             android:layout_below="@id/btn_lyt"
             android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:layout_marginTop="35dp"
             android:textColor="#000000"/>
     </RelativeLayout>
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/div_linear"
+        android:background="@drawable/topradiusonly"
+        >
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/dob_signup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        >
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Date of Birth"
         android:id="@+id/DoB"
         android:layout_below="@id/div_linear"
-        android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:padding="5dp"
         />
+    </android.support.design.widget.TextInputLayout>
     <TextView
         android:id="@+id/txt_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/DoB"
+        android:layout_below="@id/dob_signup_layout"
         android:layout_marginLeft="25dp"
         android:text="GENDER"
         android:textColor="#000000"
-        android:textSize="18sp" />
+        android:textSize="15sp" />
 
     <RadioGroup
         android:id="@+id/radio_gender"
@@ -94,40 +107,49 @@
             android:text="Female" />
 
     </RadioGroup>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/pin_signup_layout"
+        android:layout_below="@id/radio_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
     <EditText
         android:id="@+id/signup_pincode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radio_gender"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Enter Pincode"
         android:padding="5dp"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:inputType="number"
         android:maxLength="6"/>
 
-
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/pswd_signup_layout"
+        android:layout_below="@id/pin_signup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
     <EditText
         android:id="@+id/signup_pswd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/signup_pincode"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Enter Password"
         android:inputType="textVisiblePassword"
         android:padding="5dp"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
+    </android.support.design.widget.TextInputLayout>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Terms and Conditions"
         android:textColor="#000000"
         android:id="@+id/TandC"
-        android:layout_below="@id/signup_pswd"
+        android:layout_below="@id/pswd_signup_layout"
         android:layout_marginLeft="25dp"/>
     <Button
         android:layout_width="wrap_content"
@@ -137,5 +159,5 @@
         android:layout_centerHorizontal="true"
         android:text="Submit"
         android:background="@drawable/button1"/>
-
+    </RelativeLayout>
 </RelativeLayout>

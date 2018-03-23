@@ -5,64 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.home.authentic_art_works.LoginPage">
-    <RelativeLayout
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/mobileno_input_layout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="vertical"
-        android:id="@+id/login_linear"
-        android:background="@drawable/div_top">
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login_number"
-        android:layout_below="@id/login_linear"
         android:hint="Your mobile no."
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:inputType="phone"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/password_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobileno_input_layout"
+        >
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login_pswd"
         android:inputType="textVisiblePassword"
-        android:layout_below="@id/login_number"
         android:hint="Enter password"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="5dp"/>
+    </android.support.design.widget.TextInputLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="login"
         android:id="@+id/login_btn"
-        android:layout_below="@id/login_pswd"
+        android:layout_below="@id/password_input_layout"
         android:background="@drawable/button1"
         android:layout_centerHorizontal="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New user! signup here"
-        android:id="@+id/new_user_txt"
-        android:layout_below="@id/login_btn"
-        android:layout_centerHorizontal="true"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:layout_marginTop="25dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="signup"
-        android:background="@drawable/button1"
-        android:id="@+id/signup_btn"
-        android:layout_below="@id/new_user_txt"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="7dp"/>
+
 
 </RelativeLayout>
