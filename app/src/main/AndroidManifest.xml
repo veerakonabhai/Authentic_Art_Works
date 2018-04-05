@@ -21,16 +21,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPage"
-            android:parentActivityName=".HomeScreen"
-            android:label=""/>
+        <activity
+            android:name=".LoginPage"
+            android:label=""
+            android:parentActivityName=".HomeScreen" />
         <activity android:name=".SignupPage" />
         <activity android:name=".SignupPage2" />
         <activity
             android:name=".HomeMainActivity"
             android:label="@string/title_activity_home_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeMainActivity2"></activity>
+        <activity android:name=".HomeMainActivity2" />
+        <activity
+            android:name=".IndividualActivity"
+            android:label="@string/title_activity_individual"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

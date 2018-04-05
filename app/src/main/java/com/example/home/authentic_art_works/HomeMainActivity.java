@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +77,7 @@ public class HomeMainActivity extends AppCompatActivity
         c =new card(4,3,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
         cardList.add(c);
 
-        c =new card(4,3,"veera","bad boy",images[2]);
+        c =new card(4,0,"veera","bad boy",images[2]);
         cardList.add(c);
 
         c =new card(4,3,"veera","bad boy",images[1]);
@@ -92,6 +94,51 @@ public class HomeMainActivity extends AppCompatActivity
         //recyclerView.addItemDecoration(new GridSpacingItemDecoration(2,dpToPx(10),true));
         // recyclerView.setItemAnimator(new DefaultItemAnimator());
         gridView.setAdapter(adapter);
+
+        final SwipeRefreshLayout mySwipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swiperefresh);
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        Toast.makeText(HomeMainActivity.this,"Refresh is called",Toast.LENGTH_LONG).show();
+
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+                        cardList=new ArrayList<>();
+                        int[] images = new int[]{
+                                R.drawable.img1,
+                                R.drawable.img2,
+                                R.drawable.img3
+                        };
+                        card c =new card(4,3,"ganesh","bad boy",images[0]);
+                        cardList.add(c);
+
+                        c =new card(4,4,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
+                        cardList.add(c);
+
+                        c =new card(44,0,"ganesh","bad boy",images[2]);
+                        cardList.add(c);
+
+                        c =new card(84,145,"veera","bad boy",images[1]);
+                        cardList.add(c);
+
+                        c =new card(4,3,"veera","bad boy",images[0]);
+                        cardList.add(c);
+                        gridView=(GridView)findViewById(R.id.gridView);
+
+                        adapter=new cardsAdapter(HomeMainActivity.this,cardList);
+
+                        // RecyclerView.LayoutManager mLayoutmanager = new GridLayoutManager(this,2);
+                        // recyclerView.setLayoutManager(mLayoutmanager);
+                        //recyclerView.addItemDecoration(new GridSpacingItemDecoration(2,dpToPx(10),true));
+                        // recyclerView.setItemAnimator(new DefaultItemAnimator());
+                        gridView.setAdapter(adapter);
+
+                        mySwipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+        );
+
 
     }
     public void prepareCards(){

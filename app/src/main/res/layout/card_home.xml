@@ -1,36 +1,80 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="5dp">
+        card_view:cardCornerRadius="15dp"
+        android:layout_margin="8dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/topradiusonly">
+            android:background="#FAEBD7"
+            >
 
             <ImageView
                 android:id="@+id/update"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:src="@drawable/notification" />
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="17dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginBottom="7dp"
+                android:src="@drawable/updates" />
+            <TextView
+                android:id="@+id/updates_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/update"
+                android:layout_alignRight="@+id/update"
+                android:layout_margin="6dp"
+                android:background="@drawable/shapingcounts"
+                android:paddingRight="2dp"
+                android:paddingBottom="1dp"
+                android:paddingLeft="2dp"
+                android:paddingTop="1dp"
+                android:gravity="center"
+                android:text="100"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:minWidth="17sp"/>
+
 
             <ImageView
                 android:id="@+id/notification"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_alignTop="@+id/update"
+                android:layout_marginTop="7dp"
                 android:layout_toLeftOf="@+id/update"
                 android:layout_toStartOf="@+id/update"
-                android:src="@drawable/notification" />
+                android:src="@drawable/notification"
+ />
+
+            <TextView
+                android:id="@+id/notification_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:minWidth="17sp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingBottom="1dp"
+                android:paddingTop="1dp"
+                android:layout_toStartOf="@id/update"
+                android:layout_toLeftOf="@id/update"
+                android:text="100"
+                android:background="@drawable/shapingcounts"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:gravity="center"/>
 
             <ImageView
                 android:id="@+id/img_card"

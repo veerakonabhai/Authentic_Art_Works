@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.home.authentic_art_works"
-        minSdkVersion 25
+        minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -33,6 +33,15 @@ dependencies {
 }
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    implementation 'com.android.support:support-v4:26.+'
 }
 dependencies {
     compile 'com.github.joielechong:countrycodepicker:2.1.5'

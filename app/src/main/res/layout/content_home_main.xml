@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.home.authentic_art_works.HomeMainActivity"
-    tools:showIn="@layout/app_bar_home_main">
+    tools:showIn="@layout/app_bar_home_main"
+    >
 
     <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

@@ -29,8 +29,8 @@ import java.util.List;
 public class cardsAdapter extends BaseAdapter{
     private Context mcontext;
     private ArrayList<card> cardlist;
-    public TextView title,notifNo,updateNo,desc;
-    public ImageView cardimg,notifimg,updateimg;
+    public TextView title,notifNo,updateNo;
+    public ImageView cardimg;
 
     /*public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title,notifNo,updateNo,desc;
@@ -119,15 +119,34 @@ public class cardsAdapter extends BaseAdapter{
         cardimg=(ImageView)itemView.findViewById(R.id.img_card);
       //  notifimg=(ImageView)view.findViewById(R.id.notification);
       //  updateimg=(ImageView)view.findViewById(R.id.update);
-
+        notifNo=(TextView)itemView.findViewById(R.id.notification_count);
         title.setText(cardlist.get(i).getTitle());
       //  desc.setText(cardlist.get(i).getDescription() + " songs");
         cardimg.setImageResource(cardlist.get(i).getImage());
+        if(cardlist.get(i).getNumberNotification()==0){
+            notifNo.setVisibility(View.GONE);
+        }
+        else{
+            notifNo.setText(""+cardlist.get(i).getNumberNotification());
+        }
+        updateNo=(TextView)itemView.findViewById(R.id.updates_count);
+        if(cardlist.get(i).getNumberUpdate()==0){
+            updateNo.setVisibility(View.GONE);
+        }
+        else{
+            updateNo.setText(""+cardlist.get(i).getNumberUpdate());
+        }
+        /*setting up widgets when user long presses the image*/
+
         cardimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i=new Intent(mcontext,IndividualActivity.class);
+                mcontext.startActivity(i);
+                /*
+                Code to implement widgets
                 ShortcutManager shortcutManager;
-                shortcutManager = getSystemService(ShortcutManager.class);
+                shortcutManager = getSystemService("ShortcutManager.class");
 
                 ShortcutInfo shortcut = new ShortcutInfo.Builder(mcontext, "id1")
                         .setShortLabel("Web site")
@@ -140,6 +159,7 @@ public class cardsAdapter extends BaseAdapter{
                  shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));
                 else
                     shortcutManager.addDynamicShortcuts(Arrays.asList(shortcut));
+                */
             }
         });
 //            Glide.with(mcontext).load(c.getImage()).into(cardimg);
