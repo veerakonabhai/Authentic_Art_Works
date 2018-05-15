@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.home.authentic_art_works.MediaFilesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:numColumns="3"
+        android:scrollbars="vertical"
+        android:id="@+id/gv2">
+
+    </GridView>
+
+</FrameLayout>

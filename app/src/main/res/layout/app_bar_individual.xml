@@ -19,38 +19,35 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <android.support.design.widget.TabLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            app:tabMode="scrollable">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tabs"
+            >
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:text="first"
+                android:text="Updates"
                 />
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="second"/>
+                android:text="Media"/>
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="third"/>
+                android:text="Polls"/>
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="fourth"/>
-            <android.support.design.widget.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="asrgsehtsbksdfjv"/>
-            <android.support.design.widget.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="six"/>
+                android:text="About us"/>
+
         </android.support.design.widget.TabLayout>
+
+
+
+
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_individual"
