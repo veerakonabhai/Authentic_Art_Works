@@ -11,4 +11,5 @@
         android:text="Polls Fragment"
         android:gravity="center"/>
 
+
 </FrameLayout>

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -110,6 +111,7 @@ public class cardsAdapter extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
 
         //card c=(card)this.getItem(i);
+        final int position=i;
         View itemView=view;
 
             itemView=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_home, viewGroup, false);
@@ -141,8 +143,14 @@ public class cardsAdapter extends BaseAdapter{
         cardimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(mcontext,IndividualActivity.class);
-                mcontext.startActivity(i);
+                Toast.makeText(mcontext,"HELLO"+position,Toast.LENGTH_LONG).show();
+
+                    Intent i=new Intent(mcontext,IndividualActivity.class);
+                    i.putExtra("grid position",position);
+                    mcontext.startActivity(i);
+
+
+
                 /*
                 Code to implement widgets
                 ShortcutManager shortcutManager;

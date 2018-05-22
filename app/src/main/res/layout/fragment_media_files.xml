@@ -5,14 +5,20 @@
     tools:context="com.example.home.authentic_art_works.MediaFilesFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:numColumns="3"
+        android:numColumns="2"
         android:scrollbars="vertical"
-        android:id="@+id/gv2">
+        android:id="@+id/gv2"
+        >
 
     </GridView>
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

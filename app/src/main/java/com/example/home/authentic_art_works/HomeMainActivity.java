@@ -31,7 +31,7 @@ public class HomeMainActivity extends AppCompatActivity
 
     GridView gridView;
     cardsAdapter adapter;
-    ArrayList<card> cardList;
+    ArrayList<card> cardList,cardList2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +39,7 @@ public class HomeMainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,13 +58,15 @@ public class HomeMainActivity extends AppCompatActivity
         getLayoutInflater().inflate(R.layout.gridview,frame);
 */
         //prepareCards();
+        //cardList.clear();
         cardList=new ArrayList<>();
-        int[] images = new int[]{
+
+        final int[] images = new int[]{
                 R.drawable.img1,
                 R.drawable.img2,
                 R.drawable.img3
         };
-        card c =new card(4,3,"veera","bad boy",images[0]);
+         card c =new card(4,3,"veera","bad boy",images[0]);
         cardList.add(c);
 
         c =new card(4,3,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
@@ -86,6 +81,19 @@ public class HomeMainActivity extends AppCompatActivity
         c =new card(4,3,"veera","bad boy",images[0]);
         cardList.add(c);
         gridView=(GridView)findViewById(R.id.gridView);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+             /*   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                gridView=(GridView)findViewById(R.id.gridView);
+                card c=new card(34,4,"undertaker","dead man is back in full flow",images[0]);
+                cardList.add(c);
+                adapter=new cardsAdapter(HomeMainActivity.this,cardList);
+                gridView.setAdapter(adapter);
+            }
+        });
 
         adapter=new cardsAdapter(HomeMainActivity.this,cardList);
 
@@ -124,7 +132,7 @@ public class HomeMainActivity extends AppCompatActivity
 
                         c =new card(4,3,"veera","bad boy",images[0]);
                         cardList.add(c);
-                        gridView=(GridView)findViewById(R.id.gridView);
+                 //       gridView=(GridView)findViewById(R.id.gridView);
 
                         adapter=new cardsAdapter(HomeMainActivity.this,cardList);
 

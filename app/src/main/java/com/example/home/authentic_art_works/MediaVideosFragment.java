@@ -3,10 +3,12 @@ package com.example.home.authentic_art_works;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,10 +17,10 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class MediaVideosFragment extends Fragment {
-    MediaAdapter ma;
-    MediaAdapter.Media media;
+    MediaVideosAdapter ma;
+    MediaVideosAdapter.Media media;
     GridView gv;
-    ArrayList<MediaAdapter.Media> values;
+    ArrayList<MediaVideosAdapter.Media> values;
     View view;
 
     public MediaVideosFragment() {
@@ -29,26 +31,34 @@ public class MediaVideosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view=inflater.from(getActivity()).inflate(R.layout.fragment_media_videos, container, false);
+        view=inflater.inflate(R.layout.fragment_media_videos,container,false);
         values=new ArrayList<>();
-        media=new MediaAdapter.Media("veera",R.drawable.video);
+        media=new MediaVideosAdapter.Media("veera",R.drawable.folder);
         values.add(media);
-        media=new MediaAdapter.Media("john cena",R.drawable.video);
+        media=new MediaVideosAdapter.Media("john cena",R.drawable.folder);
         values.add(media);
-        media=new MediaAdapter.Media("undertaker",R.drawable.video);
+        media=new MediaVideosAdapter.Media("undertaker",R.drawable.folder);
         values.add(media);
-        media=new MediaAdapter.Media("roman reigns",R.drawable.picture);
+        media=new MediaVideosAdapter.Media("roman reigns",R.drawable.folder);
         values.add(media);
-        media=new MediaAdapter.Media("ganesh",R.drawable.picture);
+        media=new MediaVideosAdapter.Media("ganesh",R.drawable.folder);
         values.add(media);
-        media=new MediaAdapter.Media("kaushik",R.drawable.picture);
+        media=new MediaVideosAdapter.Media("kaushik",R.drawable.folder);
         values.add(media);
-        media=new MediaAdapter.Media("brock lesnar",R.drawable.picture);
+        media=new MediaVideosAdapter.Media("brock lesnar",R.drawable.folder );
         values.add(media);
 
         gv=(GridView)view.findViewById(R.id.gv1);
-        ma=new MediaAdapter(this.getActivity(),values);
+        ma=new MediaVideosAdapter(this.getActivity(),values);
         gv.setAdapter(ma);
+        final SwipeRefreshLayout sr=(SwipeRefreshLayout)view.findViewById(R.id.swiperefresh3);
+        sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(getContext(),"Hello refreshed in videos in media",Toast.LENGTH_SHORT).show();
+                sr.setRefreshing(false);
+            }
+        });
         return view;
     }
 

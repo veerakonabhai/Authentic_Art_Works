@@ -1,5 +1,6 @@
 package com.example.home.authentic_art_works;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +22,7 @@ public class IndividualActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ViewPager vp;
     TabLayout tb;
+    int gridposition;
     //LinearLayoutManager lm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,12 @@ public class IndividualActivity extends AppCompatActivity
 
         tb = (TabLayout)findViewById(R.id.tabs);
         vp = (ViewPager)findViewById(R.id.viewpager);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            gridposition = extras.getInt("grid position");
+            //The key argument here must match that used in the other activity
+        }
+
         this.addPages();
     //    vp.setAdapter(new IndividualPageAdapter(getSupportFragmentManager()));
         tb.setupWithViewPager(vp);
@@ -58,10 +66,17 @@ public class IndividualActivity extends AppCompatActivity
     }
     public void addPages(){
         IndividualPageAdapter pagerAdapter=new IndividualPageAdapter(this.getSupportFragmentManager());
-        pagerAdapter.addFragment(new UpdatesFragment());
-        pagerAdapter.addFragment(new MediaFragment());
-        pagerAdapter.addFragment(new PollsFragment());
-        pagerAdapter.addFragment(new AboutUsFragment());
+        if(gridposition==3){
+            pagerAdapter.addFragment(new UpdatesFragment());
+            pagerAdapter.addFragment(new MediaFragment());
+            pagerAdapter.addFragment(new PollsFragment());
+        }
+        else{
+            pagerAdapter.addFragment(new UpdatesFragment());
+            pagerAdapter.addFragment(new MediaFragment());
+            pagerAdapter.addFragment(new PollsFragment());
+            pagerAdapter.addFragment(new AboutUsFragment());
+        }
         //SET ADAPTER TO VP
         vp.setAdapter(pagerAdapter);
     }
@@ -103,14 +118,18 @@ public class IndividualActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.updates) {
             // Handle the camera action
-            IndividualActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.contentid,new UpdatesFragment()).commit();
-        } else if (id == R.id.nav_gallery) {
-            IndividualActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.contentid,new MediaFragment()).commit();
-        } else if (id == R.id.nav_slideshow) {
+            vp.setCurrentItem(0);
+         //   IndividualActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.contentid,new UpdatesFragment()).commit();
+        } else if (id == R.id.media) {
+            vp.setCurrentItem(1);
+       //     IndividualActivity.this.getSupportFragmentManager().beginTransaction().replace(R.id.contentid,new MediaFragment()).commit();
+        } else if (id == R.id.polls) {
+            vp.setCurrentItem(2);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.aboutus) {
+            vp.setCurrentItem(3);
 
         } else if (id == R.id.nav_share) {
 

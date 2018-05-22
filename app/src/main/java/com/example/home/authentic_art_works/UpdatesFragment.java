@@ -4,12 +4,14 @@ package com.example.home.authentic_art_works;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,6 +60,14 @@ public class UpdatesFragment extends Fragment {
      //   lm=new LinearLayoutManager(getActivity());
         uadapter=new UpdatesAdapter(this.getActivity(),cardlist);
         lv.setAdapter(uadapter);
+        final SwipeRefreshLayout sr=(SwipeRefreshLayout)view.findViewById(R.id.swiperefresh1);
+        sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(getContext(),"Hello refreshed in updates",Toast.LENGTH_SHORT).show();
+                sr.setRefreshing(false);
+            }
+        });
         return view;
     }
 

@@ -27,4 +27,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- FOR: ABOUT US FRAGMENT -->
+    <string name="aboutus_desc">        This is descripton of the company.Our company servies the people in need.We sincerely recommend people to take our service if not they will get beaten and kicked out of their houses.</string>
+    <string name="aboutus_vision">Vision: vision of the app will be updated soon</string>
+    <string name="aboutus_mission">Mission: mission of the app also</string>
 </resources>

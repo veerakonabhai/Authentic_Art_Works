@@ -49,7 +49,7 @@ public class MediaFragment extends Fragment {
     }
 
     public void addPages(){
-        MediaPageAdapter pagerAdapter=new MediaPageAdapter(fa.getSupportFragmentManager());
+        MediaPageAdapter pagerAdapter=new MediaPageAdapter(getChildFragmentManager());
      //   Fragment f=new BlankFragment();
         pagerAdapter.addFragment(new MediaImagesFragment());
         pagerAdapter.addFragment(new MediaVideosFragment());

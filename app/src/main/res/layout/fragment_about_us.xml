@@ -4,17 +4,99 @@
     android:layout_height="match_parent"
     tools:context="com.example.home.authentic_art_works.AboutUsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="About Us Fragment" />
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerview">
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+            <ImageView
+                android:id="@+id/aboutus_img"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:id="@+id/aboutus_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aboutus_img"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="17sp"
+                android:text="@string/aboutus_desc"/>
+            <TextView
+                android:id="@+id/aboutus_vision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aboutus_desc"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/aboutus_vision"
+                />
+            <TextView
+                android:id="@+id/aboutus_mission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aboutus_vision"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/aboutus_mission"
+                />
+            <TextView
+                android:id="@+id/aboutus_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aboutus_mission"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="15sp"
+                android:text="Contact us : "/>
+            <TextView
+                android:id="@+id/contact1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:layout_below="@id/aboutus_mission"
+                android:layout_toEndOf="@id/aboutus_contact"
+                android:layout_toRightOf="@id/aboutus_contact"
+                android:autoLink="phone"
+                android:text="+919876543210"
+                />
+            <TextView
+                android:id="@+id/contact2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:layout_below="@id/contact1"
+                android:layout_toEndOf="@id/aboutus_contact"
+                android:layout_toRightOf="@id/aboutus_contact"
+                android:autoLink="phone"
+                android:text="+919977553311"
+                />
+            <TextView
+                android:id="@+id/email1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"
+                android:layout_below="@id/contact2"
+                android:layout_toEndOf="@id/aboutus_contact"
+                android:layout_toRightOf="@id/aboutus_contact"
+                android:autoLink="email"
+                android:text="abc@gmail.com"
+                />
+        </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>

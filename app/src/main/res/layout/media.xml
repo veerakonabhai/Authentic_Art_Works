@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/flag_transparent">
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/folder_icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/picture" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/folder"
+            android:scaleType="fitXY"
+            android:layout_centerHorizontal="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="10sp"
             android:text="PHOTOS"
+android:layout_marginTop="5dp"
             android:layout_below="@id/folder_icon"
             android:layout_centerHorizontal="true"
             android:textColor="#000000"
@@ -28,4 +34,4 @@
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
-</RelativeLayout>
+</LinearLayout>
