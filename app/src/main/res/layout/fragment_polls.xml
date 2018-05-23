@@ -5,11 +5,10 @@
     tools:context="com.example.home.authentic_art_works.PollsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Polls Fragment"
-        android:gravity="center"/>
+        android:id="@+id/polls_lv"></ListView>
 
 
 </FrameLayout>

@@ -2,6 +2,7 @@ package com.example.home.authentic_art_works;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -110,6 +111,11 @@ class ActivityAdapter extends BaseAdapter{
             @Override
             public void onClick(View view) {
                 Toast.makeText(mcontext,"Hello Image",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse("https://i.ndtvimg.com/i/2018-03/mahesh-babu-instagram_650x400_41521705026.jpg"), "image/*");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                mcontext.startActivity(intent);
               //  Intent i=new Intent(mcontext,ImageActivity.class);
               //  mcontext.startActivity(i);
             }
