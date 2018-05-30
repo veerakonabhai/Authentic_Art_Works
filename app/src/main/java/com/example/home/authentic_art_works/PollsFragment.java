@@ -41,7 +41,7 @@ public class PollsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.fragment_polls, container, false);
-        lv=(ListView)view.findViewById(R.id.polls_lv);
+        lv=( ListView)view.findViewById(R.id.polls_lv);
         polls=new ArrayList<>();
         poll=new PollsAdapter.Polls(R.drawable.img3,"Doctor Strange","yes","no",40,50);
         polls.add(poll);
