@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class MediaVideosFragment extends Fragment {
     MediaVideosAdapter ma;
     MediaVideosAdapter.Media media;
-    GridView gv;
+    ListView gv;
     ArrayList<MediaVideosAdapter.Media> values;
     View view;
 
@@ -33,22 +34,22 @@ public class MediaVideosFragment extends Fragment {
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_media_videos,container,false);
         values=new ArrayList<>();
-        media=new MediaVideosAdapter.Media("veera",R.drawable.folder);
+        media=new MediaVideosAdapter.Media("veera",R.drawable.youtube);
         values.add(media);
-        media=new MediaVideosAdapter.Media("john cena",R.drawable.folder);
+        media=new MediaVideosAdapter.Media("john cena",R.drawable.youtube);
         values.add(media);
-        media=new MediaVideosAdapter.Media("undertaker",R.drawable.folder);
+        media=new MediaVideosAdapter.Media("undertaker",R.drawable.youtube);
         values.add(media);
-        media=new MediaVideosAdapter.Media("roman reigns",R.drawable.folder);
+        media=new MediaVideosAdapter.Media("roman reigns",R.drawable.youtube);
         values.add(media);
-        media=new MediaVideosAdapter.Media("ganesh",R.drawable.folder);
+        media=new MediaVideosAdapter.Media("ganesh",R.drawable.youtube);
         values.add(media);
-        media=new MediaVideosAdapter.Media("kaushik",R.drawable.folder);
+        media=new MediaVideosAdapter.Media("kaushik",R.drawable.youtube);
         values.add(media);
-        media=new MediaVideosAdapter.Media("brock lesnar",R.drawable.folder );
+        media=new MediaVideosAdapter.Media("brock lesnar",R.drawable.youtube );
         values.add(media);
 
-        gv=(GridView)view.findViewById(R.id.gv1);
+        gv=(ListView) view.findViewById(R.id.gv1);
         ma=new MediaVideosAdapter(this.getActivity(),values);
         gv.setAdapter(ma);
         final SwipeRefreshLayout sr=(SwipeRefreshLayout)view.findViewById(R.id.swiperefresh3);

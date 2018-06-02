@@ -75,6 +75,9 @@ public class IndividualActivity extends AppCompatActivity
             pagerAdapter.addFragment(new UpdatesFragment());
             pagerAdapter.addFragment(new MediaFragment());
             pagerAdapter.addFragment(new PollsFragment());
+            pagerAdapter.addFragment(new FundRaiseFragment());
+            pagerAdapter.addFragment(new LeadershipFragment());
+
             pagerAdapter.addFragment(new AboutUsFragment());
         }
         //SET ADAPTER TO VP

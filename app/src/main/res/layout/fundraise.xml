@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_funds"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:src="@color/colorPrimaryDark"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:id="@+id/title_funds"
+                android:layout_below="@id/img_funds"
+                android:text="title"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:id="@+id/date_funds"
+                android:layout_below="@id/title_funds"
+                android:text="ends on:"
+                android:layout_marginLeft="10dp"/>
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:id="@+id/fund_meter"
+                android:layout_below="@id/date_funds"
+                android:progress="40"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:id="@+id/raised_amount"
+                android:layout_below="@id/fund_meter"
+                android:layout_marginLeft="10dp"
+                android:text="raised amount"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:id="@+id/target_amount"
+                android:layout_below="@id/fund_meter"
+                android:text="target amount"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" 
+                android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

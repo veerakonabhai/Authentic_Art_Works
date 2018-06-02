@@ -2,23 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.home.authentic_art_works.MediaImagesFragment">
+    tools:context="com.example.home.authentic_art_works.Photos3Fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v4.widget.SwipeRefreshLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/swiperefresh2"
+        android:id="@+id/swiperefresh4"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:numColumns="2"
+            android:scrollbars="vertical"
+            android:id="@+id/gvinphotos3"
+            >
 
-
-        android:scrollbars="vertical"
-        android:id="@+id/gv">
-
-    </ListView>
+        </GridView>
     </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

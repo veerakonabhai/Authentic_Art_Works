@@ -7,7 +7,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
 
     android:layout_marginLeft="10dp"
@@ -25,6 +25,17 @@
             android:src="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:layout_margin="5dp"/>
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            >
+           <WebView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:id="@+id/pdf1"></WebView>
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
@@ -40,6 +51,7 @@
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:src="@drawable/likes"
+            android:scaleType="fitXY"
             android:layout_below="@id/img_src"
             android:layout_centerInParent="true"
             android:layout_marginRight="5dp"/>
@@ -75,10 +87,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/date"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:text="this is title"
             android:textSize="22sp"
             android:textColor="#000000"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/desc_updates"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="hello hwy how are you doing and whatd good  thurrasdy friday"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>
 </LinearLayout>

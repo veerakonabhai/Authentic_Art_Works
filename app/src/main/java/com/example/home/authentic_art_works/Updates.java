@@ -8,15 +8,27 @@ import java.util.Date;
 
 public class Updates {
     String title;
+
+    String desc;
     int image,likescount;
     String date;
 
-    public Updates(String title,int image,int likescount,String date){
+    public Updates(String title,int image,int likescount,String date,String desc){
         this.title=title;
         this.image=image;
         this.likescount=likescount;
         this.date=date;
+        this.desc=desc;
     }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
 
     public int getLikescount() {
         return likescount;

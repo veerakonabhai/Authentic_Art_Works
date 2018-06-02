@@ -173,9 +173,13 @@ class ActivityVideosAdapter extends BaseAdapter {
        iv1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent i=new Intent(mcontext,VideoActivity.class);
+               Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                       Uri.parse("http://www.youtube.com/watch?v=2wGSKHW2PvI"));
+               Toast.makeText(mcontext,"proceeding to youtube",Toast.LENGTH_LONG).show();
+               mcontext.startActivity(webIntent);
+        /*       Intent i=new Intent(mcontext,VideoActivity.class);
                i.putExtra("video url",video.getVideourl());
-               mcontext.startActivity(i);
+               mcontext.startActivity(i);*/
            }
        });
       //  Uri uri=Uri.parse(video.getUrl());

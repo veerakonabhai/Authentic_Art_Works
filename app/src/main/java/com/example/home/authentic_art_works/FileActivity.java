@@ -17,6 +17,7 @@ public class FileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
        // Uri uri =Uri.parse("http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf");
      /*   PDFView pdfview =(PDFView)findViewById(R.id.pdfView);
        pdfview.fromAsset("lesson2.pdf").load();*/
@@ -39,5 +40,9 @@ public class FileActivity extends AppCompatActivity {
         String filename = "http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf";
         webview1.loadUrl("http://docs.google.com/gview?embedded=true&url=" + filename);
 
+    }
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

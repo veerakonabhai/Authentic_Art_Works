@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -200,6 +201,9 @@ class PollsAdapter extends BaseAdapter {
         tv1.setText(poll.getTitle());
         rb1.setText(poll.getOption1());
         rb2.setText(poll.getOption2());
+        ps1.setProgress(poll.getOptper1());
+        ps2.setProgress(poll.getOptper2());
+        Log.d("progress bars",""+poll.getOptper1()+" "+poll.getOptper2());
         rb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -211,12 +215,12 @@ class PollsAdapter extends BaseAdapter {
                 ad.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        rb1.setVisibility(View.GONE);
+                  /*      rb1.setVisibility(View.GONE);
                         rb2.setVisibility(View.GONE);
                         tv2.setVisibility(View.VISIBLE);
                         tv3.setVisibility(View.VISIBLE);
                         ps1.setVisibility(View.VISIBLE);
-                        ps2.setVisibility(View.VISIBLE);
+                        ps2.setVisibility(View.VISIBLE);*/
 
                         tv2.setText(""+(poll.getOptper1()+1));
                         tv3.setText(""+(poll.getOptper2()-1));
@@ -240,7 +244,38 @@ class PollsAdapter extends BaseAdapter {
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(mcontext,"Position="+position,Toast.LENGTH_LONG).show();
+                AlertDialog.Builder ad=new AlertDialog.Builder(mcontext);
+                ad.setTitle("Confirming your opinion");
+                ad.setMessage("Please confirm your opinion!");
+                ad.setCancelable(false);
+                ad.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                  /*      rb1.setVisibility(View.GONE);
+                        rb2.setVisibility(View.GONE);
+                        tv2.setVisibility(View.VISIBLE);
+                        tv3.setVisibility(View.VISIBLE);
+                        ps1.setVisibility(View.VISIBLE);
+                        ps2.setVisibility(View.VISIBLE);*/
 
+                        tv2.setText(""+(poll.getOptper1()-1));
+                        tv3.setText(""+(poll.getOptper2()+1));
+
+                        ps1.setProgress((poll.getOptper1()-1));
+                        ps2.setProgress((poll.getOptper2()+1));
+                        //  dialog.cancel();
+                    }
+                });
+                ad.setNegativeButton("Change", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                AlertDialog alert=ad.create();
+                alert.show();
             }
         });
         return convertView;

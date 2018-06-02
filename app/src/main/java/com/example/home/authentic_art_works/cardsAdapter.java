@@ -7,9 +7,11 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,7 +33,7 @@ public class cardsAdapter extends BaseAdapter{
     private Context mcontext;
     private ArrayList<card> cardlist;
     public TextView title,notifNo,updateNo;
-    public ImageView cardimg;
+    public ImageView cardimg,menu;
 
     /*public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title,notifNo,updateNo,desc;
@@ -122,6 +124,7 @@ public class cardsAdapter extends BaseAdapter{
       //  notifimg=(ImageView)view.findViewById(R.id.notification);
       //  updateimg=(ImageView)view.findViewById(R.id.update);
         notifNo=(TextView)itemView.findViewById(R.id.notification_count);
+        menu=(ImageView)itemView.findViewById(R.id.menu);
         title.setText(cardlist.get(i).getTitle());
       //  desc.setText(cardlist.get(i).getDescription() + " songs");
         cardimg.setImageResource(cardlist.get(i).getImage());
@@ -148,6 +151,39 @@ public class cardsAdapter extends BaseAdapter{
                     Intent i=new Intent(mcontext,IndividualActivity.class);
                     i.putExtra("grid position",position);
                     mcontext.startActivity(i);
+            }
+        });
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //creating a popup menu
+                Toast.makeText(mcontext,"you are clicking",Toast.LENGTH_SHORT).show();
+                PopupMenu popup = new PopupMenu(mcontext, menu);
+                //inflating menu from xml resource
+                popup.inflate(R.menu.card_menu);
+                //adding click listener
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.hide:
+                                //handle menu1 click
+                                Toast.makeText(mcontext,"Hide",Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.remove:
+                                //handle menu2 click
+                                Toast.makeText(mcontext,"Remove",Toast.LENGTH_SHORT).show();
+                                break;
+
+                        }
+                        return false;
+                    }
+                });
+                //displaying the popup
+                popup.show();
+
+            }
+        });
 
 
 
@@ -168,8 +204,7 @@ public class cardsAdapter extends BaseAdapter{
                 else
                     shortcutManager.addDynamicShortcuts(Arrays.asList(shortcut));
                 */
-            }
-        });
+
 //            Glide.with(mcontext).load(c.getImage()).into(cardimg);
            // Glide.with(mcontext).load(c.getNumberNotification()).into(notifimg);
            // Glide.with(mcontext).load(c.getNumberUpdate()).into(updateimg);

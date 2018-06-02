@@ -88,7 +88,7 @@ public class MediaFilesAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Toast.makeText(mcontext,"Hello media",Toast.LENGTH_LONG).show();
-                Intent i=new Intent(mcontext,FileActivity.class);
+                Intent i=new Intent(mcontext,MediaFilesActivity.class);
                 mcontext.startActivity(i);
             }
         });

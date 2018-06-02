@@ -10,15 +10,15 @@
         android:id="@+id/swiperefresh3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <GridView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:numColumns="3"
+
         android:scrollbars="vertical"
         android:id="@+id/gv1"
         >
 
-    </GridView>
+    </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

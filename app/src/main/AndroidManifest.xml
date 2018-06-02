@@ -13,6 +13,12 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <permission
+        android:name="com.example.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.permission.MAPS_RECEIVE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,13 +35,15 @@
         </activity>
         <activity
             android:name=".LoginPage"
-            android:windowSoftInputMode="adjustPan"
             android:label=""
-            android:parentActivityName=".HomeScreen" />
-        <activity android:name=".SignupPage"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".SignupPage2"
-            android:windowSoftInputMode="adjustPan"/>
+            android:parentActivityName=".HomeScreen"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".SignupPage"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".SignupPage2"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".HomeMainActivity"
             android:label="@string/title_activity_home_main"
@@ -47,7 +55,8 @@
         <activity android:name=".MediaImagesActivity" />
         <activity android:name=".MediaVideosActivity" />
         <activity android:name=".FileActivity" />
-        <activity android:name=".VideoActivity"></activity>
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".MediaFilesActivity"></activity>
     </application>
 
 </manifest>
