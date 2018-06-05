@@ -11,7 +11,10 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
+
+import static com.example.home.authentic_art_works.MediaVideosActivity.extractYoutubeId;
 
 
 /**
@@ -20,10 +23,10 @@ import java.util.ArrayList;
 public class MediaVideosFragment extends Fragment {
     MediaVideosAdapter ma;
     MediaVideosAdapter.Media media;
-    ListView gv;
+    GridView gv;
     ArrayList<MediaVideosAdapter.Media> values;
     View view;
-
+    String videoId,url1,url2,url3,url4;
     public MediaVideosFragment() {
         // Required empty public constructor
     }
@@ -33,30 +36,45 @@ public class MediaVideosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_media_videos,container,false);
+        try {
+            videoId = extractYoutubeId("https://www.youtube.com/watch?v=YKrQOm3oh1A");
+            url1 = "http://img.youtube.com/vi/" + videoId + "/0.jpg";
+            videoId = extractYoutubeId("https://www.youtube.com/watch?v=ihbsu0MfFNg");
+            url2 = "http://img.youtube.com/vi/" + videoId + "/0.jpg";
+            videoId = extractYoutubeId("https://www.youtube.com/watch?v=jD9dr-PrQkY");
+            url3 = "http://img.youtube.com/vi/" + videoId + "/0.jpg";
+            videoId = extractYoutubeId("https://www.youtube.com/watch?v=jD9dr-PrQkY");
+            url4 = "http://img.youtube.com/vi/" + videoId + "/0.jpg";
+
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
         values=new ArrayList<>();
-        media=new MediaVideosAdapter.Media("veera",R.drawable.youtube);
+        media=new MediaVideosAdapter.Media("veera",url1);
         values.add(media);
-        media=new MediaVideosAdapter.Media("john cena",R.drawable.youtube);
+        media=new MediaVideosAdapter.Media("john cena",url2);
         values.add(media);
-        media=new MediaVideosAdapter.Media("undertaker",R.drawable.youtube);
+        media=new MediaVideosAdapter.Media("undertaker",url3);
         values.add(media);
-        media=new MediaVideosAdapter.Media("roman reigns",R.drawable.youtube);
+        media=new MediaVideosAdapter.Media("roman reigns",url4);
         values.add(media);
-        media=new MediaVideosAdapter.Media("ganesh",R.drawable.youtube);
+        media=new MediaVideosAdapter.Media("ganesh",url1);
         values.add(media);
-        media=new MediaVideosAdapter.Media("kaushik",R.drawable.youtube);
+        media=new MediaVideosAdapter.Media("kaushik",url2);
         values.add(media);
-        media=new MediaVideosAdapter.Media("brock lesnar",R.drawable.youtube );
+        media=new MediaVideosAdapter.Media("brock lesnar",url3 );
         values.add(media);
 
-        gv=(ListView) view.findViewById(R.id.gv1);
+        gv=(GridView) view.findViewById(R.id.gv1);
         ma=new MediaVideosAdapter(this.getActivity(),values);
         gv.setAdapter(ma);
         final SwipeRefreshLayout sr=(SwipeRefreshLayout)view.findViewById(R.id.swiperefresh3);
         sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(getContext(),"Hello refreshed in videos in media",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Hello refreshed in videos in mediafiles",Toast.LENGTH_SHORT).show();
                 sr.setRefreshing(false);
             }
         });

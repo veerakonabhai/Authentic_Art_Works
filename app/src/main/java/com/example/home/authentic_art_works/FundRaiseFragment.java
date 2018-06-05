@@ -4,6 +4,7 @@ package com.example.home.authentic_art_works;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -196,20 +197,32 @@ class FundRaiseAdapter extends BaseAdapter {
 
         final FundRaise fund = values.get(position);
         iv.setImageResource(fund.getImageid());
-        iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //remove(position);
-                Toast.makeText(mcontext, "hello", Toast.LENGTH_LONG).show();
-            }
-        });
         tv1.setText(fund.getTitle());
         tv2.setText("ends on:"+fund.getEnddate());
         tv3.setText(""+fund.getRaisedamt());
         tv4.setText(""+fund.getTargetamt());
-        float percent=((float)fund.getRaisedamt()/(float)fund.getTargetamt())*100.0f;
-     //   Toast.makeText(mcontext,""+percent,Toast.LENGTH_LONG).show();
+        final float percent=((float)fund.getRaisedamt()/(float)fund.getTargetamt())*100.0f;
+        //   Toast.makeText(mcontext,""+percent,Toast.LENGTH_LONG).show();
         ps1.setProgress((int)percent);
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //remove(position);
+                Intent i=new Intent(mcontext,FundRaiseFullActivity.class);
+                i.putExtra("image",fund.getImageid());
+                i.putExtra("title",fund.getTitle());
+                i.putExtra("startdate",fund.getStartdate());
+                i.putExtra("enddate",fund.getEnddate());
+                i.putExtra("percent",(int)percent);
+                i.putExtra("raisedamt",fund.getRaisedamt());
+                i.putExtra("targetamt",fund.getTargetamt());
+                i.putExtra("desc",fund.getDesc());
+                mcontext.startActivity(i);
+            }
+        });
+
+
+
         return convertView;
     }
 

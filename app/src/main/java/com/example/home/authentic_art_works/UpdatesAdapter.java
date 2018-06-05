@@ -1,6 +1,7 @@
   package com.example.home.authentic_art_works;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
 import android.net.Uri;
@@ -31,7 +32,7 @@ public class UpdatesAdapter extends BaseAdapter {
      static ArrayList<Updates> values;
      Context mcontext;
      LayoutInflater inflater;
-
+     static int i=1;
      TextView tv1,tv2,tv3,tv4,tv5;
 // Provide a reference to the views for each data item
 // Complex data items may need more than one view per item, and
@@ -57,43 +58,116 @@ public class UpdatesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        final Updates name = values.get(position);
         if(inflater==null)
         {
             inflater= (LayoutInflater) mcontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
-        if(convertView==null)
-        {
-            convertView=inflater.inflate(R.layout.updates,parent,false);
+        if(convertView==null) {
+            convertView = inflater.inflate(R.layout.updates, parent, false);
         }
+
         tv1=(TextView)convertView.findViewById(R.id.date);
         tv2=(TextView)convertView.findViewById(R.id.like_count);
         tv3=(TextView)convertView.findViewById(R.id.share_cnt) ;
         tv4=(TextView)convertView.findViewById(R.id.title);
         tv5= (TextView) convertView.findViewById(R.id.desc_updates);
-        ImageView img= (ImageView) convertView.findViewById(R.id.img_src);
-        WebView pdf=(WebView)convertView.findViewById(R.id.pdf1);
-
-        final Updates name = values.get(position);
         tv1.setText(""+name.getDate());
         tv2.setText(""+name.getLikescount());
-        tv3.setText(""+name.getLikescount());
+        tv3.setText(""+name.getSharecount());
         tv4.setText(""+name.getTitle());
         tv5.setVisibility(View.GONE);
-       // img.setImageResource(name.getImage());
-        pdf.getSettings().setJavaScriptEnabled(true);
-        String filename = "http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf";
-        pdf.loadUrl("http://docs.google.com/gview?embedded=true&url=" + filename);
 
-  /*      //img.setImageBitmap(bmp);
-       // img.setOnClickListener(new View.OnClickListener() {
+           if(name.getImageid()==1){
+
+              WebView pdf = (WebView) convertView.findViewById(R.id.web1);
+               ImageView img= (ImageView) convertView.findViewById(R.id.img_src);
+               pdf.setVisibility(View.INVISIBLE);
+
+
+
+               img.setImageResource(name.getImage());
+
+
+
+               //     pdf.loadUrl("http://docs.google.com/gview?embedded=true&url=" + filename);
+
+  /*      //img.setImageBitmap(bmp);*/
+               img.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Intent i=new Intent(mcontext,UpdatesActivity.class);
+                       i.putExtra("title",name.getTitle());
+                       i.putExtra("date",name.getDate());
+                       i.putExtra("likescount",name.getLikescount());
+                       i.putExtra("sharecount",name.getSharecount());
+                       i.putExtra("description",name.getDesc());
+                       i.putExtra("image",name.getImage());
+                       mcontext.startActivity(i);
+                   }
+               });
+
+            }
+            else {
+               /* convertView = inflater.inflate(R.layout.updates1, parent, false);
+                tv1 = (TextView) convertView.findViewById(R.id.date);
+                tv2 = (TextView) convertView.findViewById(R.id.like_count);
+                tv3 = (TextView) convertView.findViewById(R.id.share_cnt);
+                tv4 = (TextView) convertView.findViewById(R.id.title);
+                tv5 = (TextView) convertView.findViewById(R.id.desc_updates);
+
+
+
+                tv1.setText("" + name.getDate());
+                tv2.setText("" + name.getLikescount());
+                tv3.setText("" + name.getLikescount());
+                tv4.setText("" + name.getTitle());
+                tv5.setVisibility(View.GONE);
+               ImageView img=(ImageView)convertView.findViewById(R.id.img_src);
+               img.setVisibility(View.INVISIBLE);
+               WebView pdf = (WebView) convertView.findViewById(R.id.web1);
+                    pdf.getSettings().setJavaScriptEnabled(true);
+                    pdf.loadUrl("http://docs.google.com/gview?embedded=true&url=" + name.getUrl());
+*/
+            }
+
+
+
+       /* tv1=(TextView)convertView.findViewById(R.id.date);
+        tv2=(TextView)convertView.findViewById(R.id.like_count);
+        tv3=(TextView)convertView.findViewById(R.id.share_cnt) ;
+        tv4=(TextView)convertView.findViewById(R.id.title);
+        tv5= (TextView) convertView.findViewById(R.id.desc_updates);
+        ImageView img= (ImageView) convertView.findViewById(R.id.img_src);
+
+
+        tv1.setText(""+name.getDate());
+        tv2.setText(""+name.getLikescount());
+        tv3.setText(""+name.getSharecount());
+        tv4.setText(""+name.getTitle());
+        tv5.setVisibility(View.GONE);
+
+        img.setImageResource(name.getImage());
+
+
+
+   //     pdf.loadUrl("http://docs.google.com/gview?embedded=true&url=" + filename);
+
+  /*      //img.setImageBitmap(bmp);*/
+     /*  img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //remove(position);
-
-               // Toast.makeText(mcontext, "hello", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(mcontext,UpdatesActivity.class);
+                i.putExtra("title",name.getTitle());
+                i.putExtra("date",name.getDate());
+                i.putExtra("likescount",name.getLikescount());
+                i.putExtra("sharecount",name.getSharecount());
+                i.putExtra("description",name.getDesc());
+                i.putExtra("image",name.getImage());
+                mcontext.startActivity(i);
             }
-        });
-*/
+        });*/
+
         return convertView;
     }
 

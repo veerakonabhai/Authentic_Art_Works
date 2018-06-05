@@ -9,17 +9,26 @@ public class card {
     private int numberUpdate;
     private String title;
     private String description;
-    private int image;
+    private int image;String logo;
 
     public card() {
     }
 
-    public card(int numberNotification, int numberUpdate, String title, String description, int image) {
+    public card(String logo,int numberNotification, int numberUpdate, String title, String description, int image) {
         this.numberNotification = numberNotification;
         this.numberUpdate = numberUpdate;
         this.title = title;
         this.description = description;
         this.image = image;
+        this.logo=logo;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public int getNumberNotification() {

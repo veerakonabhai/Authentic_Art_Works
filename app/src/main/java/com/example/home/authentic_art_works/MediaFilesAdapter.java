@@ -77,7 +77,7 @@ public class MediaFilesAdapter extends BaseAdapter {
         }
         if(convertView==null)
         {
-            convertView=inflater.inflate(R.layout.media,parent,false);
+            convertView=inflater.inflate(R.layout.mediafiles,parent,false);
         }
         tv1=(TextView)convertView.findViewById(R.id.title);
         img=(ImageView)convertView.findViewById(R.id.folder_icon);
@@ -87,7 +87,7 @@ public class MediaFilesAdapter extends BaseAdapter {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mcontext,"Hello media",Toast.LENGTH_LONG).show();
+                Toast.makeText(mcontext,"Hello mediafiles",Toast.LENGTH_LONG).show();
                 Intent i=new Intent(mcontext,MediaFilesActivity.class);
                 mcontext.startActivity(i);
             }

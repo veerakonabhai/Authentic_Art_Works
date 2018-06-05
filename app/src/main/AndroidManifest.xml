@@ -56,7 +56,12 @@
         <activity android:name=".MediaVideosActivity" />
         <activity android:name=".FileActivity" />
         <activity android:name=".VideoActivity" />
-        <activity android:name=".MediaFilesActivity"></activity>
+        <activity android:name=".MediaFilesActivity" />
+        <activity android:name=".UpdatesActivity" />
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".PollsFullActivity" />
+        <activity android:name=".FundRaiseFullActivity" />
+        <activity android:name=".ImageFullActivity"></activity>
     </application>
 
 </manifest>

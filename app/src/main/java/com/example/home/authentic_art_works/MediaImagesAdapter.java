@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -80,14 +82,17 @@ public class MediaImagesAdapter extends BaseAdapter {
             convertView=inflater.inflate(R.layout.media,parent,false);
         }
         tv1=(TextView)convertView.findViewById(R.id.title);
-        img=(ImageView)convertView.findViewById(R.id.folder_icon);
+        img=(ImageView)convertView.findViewById(R.id.imginmedia);
         final MediaImagesAdapter.Media m=media.get(position);
         tv1.setText(m.getTitle());
-        img.setImageResource(m.getImage());
+        String url="https://i.ndtvimg.com/i/2018-03/mahesh-babu-instagram_650x400_41521705026.jpg";
+        Picasso.get()
+                .load(url).placeholder(R.drawable.img2)
+                .into(img);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mcontext,"Hello media",Toast.LENGTH_LONG).show();
+                Toast.makeText(mcontext,"Hello mediafiles",Toast.LENGTH_LONG).show();
                 Intent i=new Intent(mcontext,MediaImagesActivity.class);
                 mcontext.startActivity(i);
             }

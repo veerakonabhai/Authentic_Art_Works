@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class MediaImagesFragment extends Fragment {
     MediaImagesAdapter ma;
     MediaImagesAdapter.Media media;
-    ListView gv;
+    GridView gv;
     ArrayList<MediaImagesAdapter.Media> values;
     View view;
 
@@ -49,14 +49,14 @@ public class MediaImagesFragment extends Fragment {
         media=new MediaImagesAdapter.Media("brock lesnar",R.drawable.image);
         values.add(media);
 
-        gv=(ListView) view.findViewById(R.id.gv);
+        gv=(GridView) view.findViewById(R.id.gv);
         ma=new MediaImagesAdapter(this.getActivity(),values);
         gv.setAdapter(ma);
         final SwipeRefreshLayout sr=(SwipeRefreshLayout)view.findViewById(R.id.swiperefresh2);
         sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(getContext(),"Hello refreshed in images in media",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Hello refreshed in images in mediafiles",Toast.LENGTH_SHORT).show();
                 sr.setRefreshing(false);
             }
         });

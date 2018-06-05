@@ -58,15 +58,21 @@ public class UpdatesFragment extends Fragment {
         };
         mcontext=this.getActivity();
         SimpleDateFormat s=new SimpleDateFormat("dd/M/yyyy");
-        updates=new Updates("ganesh",images[0],4,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday");
+        String filename1= "http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf";
+        String filename2="http://www.axmag.com/download/pdfurl-guide.pdf";
+        String filename3="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
+        updates=new Updates("ganesh",images[0],4,44,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",1);
         cardlist.add(updates);
-        updates=new Updates("ganesh",images[0],8,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday");
+        updates=new Updates("victor is a cool dude.But you should know one thing",filename1,44,444,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",0);
         cardlist.add(updates);
-        updates=new Updates("victor",images[0],4,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday");
+        updates=new Updates("ganesh",images[1],18,188,s.format(new Date()),"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday",1);
         cardlist.add(updates);
-        updates=new Updates("veerraaa",images[2],89,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday");
+        updates=new Updates("ganesh",filename2,80,800,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",0);
         cardlist.add(updates);
-        updates=new Updates("ganeshaaaa",images[1],4,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday");
+
+        updates=new Updates("veerraaa",images[2],89,899,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",1);
+        cardlist.add(updates);
+        updates=new Updates("ganeshaaaa",filename3,400,4000,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",0);
         cardlist.add(updates);
 
       /*  Uri uri=Uri.parse("http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf");

@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2"
-        android:id="@+id/gv4"></GridView>
+        android:id="@+id/gv4">
+
+    </GridView>
 
 </android.support.constraint.ConstraintLayout>

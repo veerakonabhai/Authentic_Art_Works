@@ -32,6 +32,8 @@ public class HomeMainActivity extends AppCompatActivity
     GridView gridView;
     cardsAdapter adapter;
     ArrayList<card> cardList,cardList2;
+    String adminlogo;
+    String userlogo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,19 +68,21 @@ public class HomeMainActivity extends AppCompatActivity
                 R.drawable.img2,
                 R.drawable.img3
         };
-         card c =new card(4,3,"veera","bad boy",images[0]);
+        userlogo="http://benu.edu.mx/wp-content/uploads/2015/03/icon-user-default.png";
+        adminlogo="https://assets.materialup.com/uploads/96df40e0-3348-49ea-bd18-5a7a51b73e57/preview";
+         card c =new card(userlogo,4,3,"veera","bad boy",images[0]);
         cardList.add(c);
 
-        c =new card(4,3,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
+        c =new card(adminlogo,4,3,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
         cardList.add(c);
 
-        c =new card(4,0,"veera","bad boy",images[2]);
+        c =new card(userlogo,4,0,"veera","bad boy",images[2]);
         cardList.add(c);
 
-        c =new card(4,3,"veera","bad boy",images[1]);
+        c =new card(adminlogo,4,3,"veera","bad boy",images[1]);
         cardList.add(c);
 
-        c =new card(4,3,"veera","bad boy",images[0]);
+        c =new card(userlogo,4,3,"veera","bad boy",images[0]);
         cardList.add(c);
         gridView=(GridView)findViewById(R.id.gridView);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -88,7 +92,7 @@ public class HomeMainActivity extends AppCompatActivity
              /*   Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
                 gridView=(GridView)findViewById(R.id.gridView);
-                card c=new card(34,4,"undertaker","dead man is back in full flow",images[0]);
+                card c=new card(adminlogo,34,4,"undertaker","dead man is back in full flow",images[0]);
                 cardList.add(c);
                 adapter=new cardsAdapter(HomeMainActivity.this,cardList);
                 gridView.setAdapter(adapter);
@@ -118,19 +122,19 @@ public class HomeMainActivity extends AppCompatActivity
                                 R.drawable.img2,
                                 R.drawable.img3
                         };
-                        card c =new card(4,3,"ganesh","bad boy",images[0]);
+                        card c =new card(userlogo,4,3,"ganesh","bad boy",images[0]);
                         cardList.add(c);
 
-                        c =new card(4,4,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
+                        c =new card(adminlogo,4,4,"veera nlsdnlldnsv  dvnlkdalkv davknlvdaknvla dnlkavnl","bad boy",images[1]);
                         cardList.add(c);
 
-                        c =new card(44,0,"ganesh","bad boy",images[2]);
+                        c =new card(userlogo,44,0,"ganesh","bad boy",images[2]);
                         cardList.add(c);
 
-                        c =new card(84,145,"veera","bad boy",images[1]);
+                        c =new card(adminlogo,84,145,"veera","bad boy",images[1]);
                         cardList.add(c);
 
-                        c =new card(4,3,"veera","bad boy",images[0]);
+                        c =new card(userlogo,4,3,"veera","bad boy",images[0]);
                         cardList.add(c);
                  //       gridView=(GridView)findViewById(R.id.gridView);
 
@@ -149,7 +153,7 @@ public class HomeMainActivity extends AppCompatActivity
 
 
     }
-    public void prepareCards(){
+  /*  public void prepareCards(){
         int[] images = new int[]{
                 R.drawable.img1,
                 R.drawable.img2,
@@ -171,7 +175,7 @@ public class HomeMainActivity extends AppCompatActivity
         cardList.add(c);
         //adapter.notifyDataSetChanged();
 
-    }
+    }*/
 
 
 

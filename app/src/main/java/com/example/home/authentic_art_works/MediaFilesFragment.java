@@ -56,7 +56,7 @@ public class MediaFilesFragment extends Fragment {
         sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(getContext(),"Hello refreshed in files in media",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Hello refreshed in files in mediafiles",Toast.LENGTH_SHORT).show();
                 sr.setRefreshing(false);
             }
         });

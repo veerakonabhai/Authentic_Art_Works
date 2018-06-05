@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ public class cardsAdapter extends BaseAdapter{
     private Context mcontext;
     private ArrayList<card> cardlist;
     public TextView title,notifNo,updateNo;
-    public ImageView cardimg,menu;
+    public ImageView cardimg,menu,notification,logo;
 
     /*public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title,notifNo,updateNo,desc;
@@ -125,6 +126,19 @@ public class cardsAdapter extends BaseAdapter{
       //  updateimg=(ImageView)view.findViewById(R.id.update);
         notifNo=(TextView)itemView.findViewById(R.id.notification_count);
         menu=(ImageView)itemView.findViewById(R.id.menu);
+        notification=(ImageView)itemView.findViewById(R.id.notification);
+        logo=(ImageView)itemView.findViewById(R.id.admin);
+        Picasso.get()
+                .load(cardlist.get(i).getLogo()).placeholder(R.drawable.img2)
+                .into(logo);
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(mcontext,NotificationsActivity.class);
+                //put that particular grid identity
+                mcontext.startActivity(i);
+            }
+        });
         title.setText(cardlist.get(i).getTitle());
       //  desc.setText(cardlist.get(i).getDescription() + " songs");
         cardimg.setImageResource(cardlist.get(i).getImage());

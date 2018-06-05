@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -20,9 +22,9 @@ public class MediaVideosAdapter extends BaseAdapter {
 
     public static class Media{
         String title;
-        int image;
+        String image;
 
-        public Media(String title,int img){
+        public Media(String title,String img){
             this.title=title;
             this.image=img;
         }
@@ -34,11 +36,11 @@ public class MediaVideosAdapter extends BaseAdapter {
             this.title = title;
         }
 
-        public int getImage() {
+        public String getImage() {
             return image;
         }
 
-        public void setImage(int image) {
+        public void setImage(String image) {
             this.image = image;
         }
     }
@@ -80,10 +82,12 @@ public class MediaVideosAdapter extends BaseAdapter {
             convertView=inflater.inflate(R.layout.media,parent,false);
         }
         tv1=(TextView)convertView.findViewById(R.id.title);
-        img=(ImageView)convertView.findViewById(R.id.folder_icon);
+        img=(ImageView)convertView.findViewById(R.id.imginmedia);
         final MediaVideosAdapter.Media m=media.get(position);
         tv1.setText(m.getTitle());
-        img.setImageResource(m.getImage());
+        Picasso.get()
+                .load(m.getImage()).placeholder(R.drawable.img2)
+                .into(img);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

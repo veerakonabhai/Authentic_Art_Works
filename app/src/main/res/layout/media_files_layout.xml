@@ -19,7 +19,7 @@
             android:layout_width="50dp"
             android:layout_margin="5dp"
             android:src="@drawable/folder1"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:id="@+id/folder_icon"/>
 
         <TextView

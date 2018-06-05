@@ -26,15 +26,17 @@
             android:scaleType="fitXY"
             android:layout_margin="5dp"/>
         <RelativeLayout
-            android:id="@+id/rl1"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="235dp"
             >
-           <WebView
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:id="@+id/pdf1"></WebView>
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/web1">
+
+            </WebView>
         </RelativeLayout>
+
 
         <TextView
             android:id="@+id/date"
@@ -53,7 +55,7 @@
             android:src="@drawable/likes"
             android:scaleType="fitXY"
             android:layout_below="@id/img_src"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginRight="5dp"/>
         <TextView
             android:id="@+id/like_count"

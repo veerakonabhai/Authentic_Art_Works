@@ -110,12 +110,14 @@ class ActivityAdapter extends BaseAdapter{
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mcontext,"Hello Image",Toast.LENGTH_LONG).show();
+                /*Toast.makeText(mcontext,"Hello Image",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.parse("https://i.ndtvimg.com/i/2018-03/mahesh-babu-instagram_650x400_41521705026.jpg"), "image/*");
+               */
+                Intent intent = new Intent(mcontext,ImageFullActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
                 mcontext.startActivity(intent);
+
               //  Intent i=new Intent(mcontext,ImageActivity.class);
               //  mcontext.startActivity(i);
             }

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -44,15 +45,15 @@ public class PollsFragment extends Fragment {
         view=inflater.inflate(R.layout.fragment_polls, container, false);
         lv=( ListView)view.findViewById(R.id.polls_lv);
         polls=new ArrayList<>();
-        poll=new PollsAdapter.Polls(R.drawable.img3,"Doctor Strange","yes","no",40,50);
+        poll=new PollsAdapter.Polls(R.drawable.img3,"Doctor Strange","yes","no",40,50,"hello");
         polls.add(poll);
-        poll=new PollsAdapter.Polls(R.drawable.img2,"Terminator","accept","reject",80,20);
+        poll=new PollsAdapter.Polls(R.drawable.img2,"Terminator","accept","reject",80,20,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday");
         polls.add(poll);
-        poll=new PollsAdapter.Polls(R.drawable.img3,"Fast and Furious","like","dislike",30,70);
+        poll=new PollsAdapter.Polls(R.drawable.img3,"Fast and Furious","like","dislike",30,70,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday");
         polls.add(poll);
-        poll=new PollsAdapter.Polls(R.drawable.img3,"Jungle Book","accept","reject",45,55);
+        poll=new PollsAdapter.Polls(R.drawable.img3,"Jungle Book","accept","reject",45,55,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday");
         polls.add(poll);
-        poll=new PollsAdapter.Polls(R.drawable.img3,"Jurassic World","yes","no",15,85);
+        poll=new PollsAdapter.Polls(R.drawable.img3,"Jurassic World","yes","no",15,85,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday");
         polls.add(poll);
         adapter=new PollsAdapter(this.getActivity(),polls);
         lv.setAdapter(adapter);
@@ -72,6 +73,16 @@ class PollsAdapter extends BaseAdapter {
         String option2;
         String title;
         int optper1,optper2;
+        String desc;
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
         public String getTitle() {
             return title;
         }
@@ -122,13 +133,14 @@ class PollsAdapter extends BaseAdapter {
             this.optper2 = optper2;
         }
 
-        Polls(int imageid, String title,String option1, String option2, int optper1, int optper2){
+        Polls(int imageid, String title,String option1, String option2, int optper1, int optper2,String desc){
             this.title=title;
             this.imageid=imageid;
             this.option1=option1;
             this.option2=option2;
             this.optper1=optper1;
             this.optper2=optper2;
+            this.desc=desc;
 
         }
 
@@ -195,7 +207,16 @@ class PollsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 //remove(position);
-                Toast.makeText(mcontext, "hello", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(mcontext,PollsFullActivity.class);
+                //Intent i=new Intent(mcontext,UpdatesActivity.class);
+                i.putExtra("title",poll.getTitle());
+                i.putExtra("option1",poll.getOption1());
+                i.putExtra("option2",poll.getOption2());
+                i.putExtra("progress1",poll.getOptper1());
+                i.putExtra("progress2",poll.getOptper2());
+                i.putExtra("description",poll.getDesc());
+                i.putExtra("image",poll.getImageid());
+                mcontext.startActivity(i);
             }
         });
         tv1.setText(poll.getTitle());

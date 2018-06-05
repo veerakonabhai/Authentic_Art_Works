@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.home.authentic_art_works.PollsFullActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_poll_full1"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:src="@drawable/img1"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/title_poll_full1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_below="@id/img_poll_full1"
+                android:text="title of the poll "
+
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/desc_poll_full1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/poll__full_progress2"
+                android:textSize="16sp"
+                android:text="description of poll is hereld know one thing0.But you should know one thing"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"/>
+            <RadioGroup
+                android:id="@+id/radio_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_poll_full1"
+                android:layout_marginLeft="30dp">
+                <RadioButton
+                    android:id="@+id/radio_options1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="option1" />
+                <RadioButton
+                    android:id="@+id/radio_options2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="option2" />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/text_full_progress11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45%"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp"
+                android:layout_below="@id/radio_options"/>
+            <ProgressBar
+                android:id="@+id/poll__full_progress1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_below="@+id/text_full_progress11"
+                android:progress="30"
+                />
+            <TextView
+                android:id="@+id/text_full_progress21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="55%"
+                android:textSize="15sp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/poll__full_progress1"/>
+            <ProgressBar
+                android:id="@+id/poll__full_progress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_below="@id/text_full_progress21"
+                android:progress="70"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
