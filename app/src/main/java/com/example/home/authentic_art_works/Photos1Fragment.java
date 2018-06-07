@@ -2,6 +2,7 @@ package com.example.home.authentic_art_works;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -139,7 +141,13 @@ class Photos1Adapter extends BaseAdapter{
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i=new Intent(mcontext,ImageFullActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("image",photo.getImageid());
+                i.putExtra("title",photo.getTitle());
+                i.putExtra("desc",photo.getDesig());
+              //  Toast.makeText(mcontext,""+photo.getTitle()+" "+photo.getDesig(),Toast.LENGTH_LONG).show();
+                mcontext.startActivity(i);
             }
         });
         tv1.setText(photo.getTitle());

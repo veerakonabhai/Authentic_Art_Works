@@ -12,33 +12,77 @@ import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class VideoActivity extends AppCompatActivity {
-    String videourl;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
+public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
+    public static final String API_KEY = "AIzaSyB7keJVcTxvfUn01-8-iOysmFUMIaxdqEI";
+    public static final String VIDEO_ID = "2wGSKHW2PvI";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_video);
-        VideoView myvideo=(VideoView)findViewById(R.id.vv);
-        videourl="https://www.youtube.com/watch?v=2wGSKHW2PvI";
-        myvideo.setVideoURI(Uri.parse(videourl));
-        myvideo.start();
-        String id="2wGSKHW2PvI";
-    //    public static void watchYoutubeVideo(Context context, String id){
-            Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://www.youtube.com/watch?v=2wGSKHW2PvI"));
-            try {
-                startActivity(appIntent);
-            } catch (Exception ex) {
-                Toast.makeText(this,"exception raised dude",Toast.LENGTH_LONG).show();
-                startActivity(webIntent);
-            }
+        Bundle b=getIntent().getExtras();
+        if(b==null){
+            String url=b.getString("video url");
+        }
 
-      /*  final MediaController mediaController = new
-                MediaController(this);
-        mediaController.setAnchorView(myvideo);*/
-
-
+/** Initializing YouTube Player View **/
+        YouTubePlayerView youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube);
+        youTubePlayerView.initialize(API_KEY, this);
     }
+    @Override
+    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult result) {
+        Toast.makeText(this, "Failured to Initialize!", Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+/** add listeners to YouTubePlayer instance **/
+        player.setPlayerStateChangeListener(playerStateChangeListener);
+        player.setPlaybackEventListener(playbackEventListener);
+/** Start buffering **/
+        if (!wasRestored) {
+            player.cueVideo(VIDEO_ID);
+        }
+    }
+    private YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
+        @Override
+        public void onBuffering(boolean arg0) {
+        }
+        @Override
+        public void onPaused() {
+        }
+        @Override
+        public void onPlaying() {
+        }
+        @Override
+        public void onSeekTo(int arg0) {
+        }
+        @Override
+        public void onStopped() {
+        }
+    };
+    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+        @Override
+        public void onAdStarted() {
+        }
+        @Override
+        public void onError(YouTubePlayer.ErrorReason arg0) {
+        }
+        @Override
+        public void onLoaded(String arg0) {
+        }
+        @Override
+        public void onLoading() {
+        }
+        @Override
+        public void onVideoEnded() {
+        }
+        @Override
+        public void onVideoStarted() {
+        }
+    };
 }
+

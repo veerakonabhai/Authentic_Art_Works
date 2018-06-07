@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,18 +120,25 @@ class ActivityFilesAdapter extends BaseAdapter {
         }
         tv1=(TextView)convertView.findViewById(R.id.title);
         img=(ImageView)convertView.findViewById(R.id.folder_icon);
+        CardView c=(CardView)convertView.findViewById(R.id.card_viewinlayout);
         final File m=media.get(position);
         tv1.setText(m.getTitle());
         img.setImageResource(m.getImage());
-        img.setOnClickListener(new View.OnClickListener() {
+        c.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Toast.makeText(mcontext,"Hello media",Toast.LENGTH_LONG).show();
                 Intent i=new Intent(mcontext,FileActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mcontext.startActivity(i);
             }
         });
+     /*   c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
         return convertView;
     }
 }

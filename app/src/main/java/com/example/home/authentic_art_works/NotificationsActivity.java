@@ -1,6 +1,7 @@
 package com.example.home.authentic_art_works;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,9 +26,9 @@ public class NotificationsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         lv=(ListView)findViewById(R.id.lvinnotifi);
         notifications=new ArrayList<>();
-        notification=new NotificationsAdapter.Notification("Ganesh","Helllo your app has to be updated buddy.");
+        notification=new NotificationsAdapter.Notification("Ganesh veera reddy gottipatti vatsava konabhai victor logansthan","Helllo your app has to be updated buddy.");
         notifications.add(notification);
-        notification=new NotificationsAdapter.Notification("Veera","Helllo your app has to be updated buddy.No need waste fellow keep it");
+        notification=new NotificationsAdapter.Notification("Veera","Helllo your app has to be updated buddy.No need waste fellow keep it and go come win loose hey there!!");
         notifications.add(notification);
         notification=new NotificationsAdapter.Notification("Doctor Strange","Helllo your app has to be updated buddy.Very strange behaviour");
         notifications.add(notification);
@@ -40,6 +42,19 @@ public class NotificationsActivity extends AppCompatActivity {
         notifications.add(notification);
         adapter=new NotificationsAdapter(this,notifications);
         lv.setAdapter(adapter);
+        final SwipeRefreshLayout mySwipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipeinnotifications);
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        Toast.makeText(NotificationsActivity.this,"Refresh is called",Toast.LENGTH_LONG).show();
+
+
+
+                        mySwipeRefreshLayout.setRefreshing(false);
+    }
+}
+        );
     }
     public boolean onSupportNavigateUp(){
         finish();

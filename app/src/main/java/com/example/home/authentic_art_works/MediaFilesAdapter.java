@@ -2,6 +2,7 @@ package com.example.home.authentic_art_works;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,10 +82,11 @@ public class MediaFilesAdapter extends BaseAdapter {
         }
         tv1=(TextView)convertView.findViewById(R.id.title);
         img=(ImageView)convertView.findViewById(R.id.folder_icon);
+        CardView c=(CardView)convertView.findViewById(R.id.card_view);
         final MediaFilesAdapter.Media m=media.get(position);
         tv1.setText(m.getTitle());
         img.setImageResource(m.getImage());
-        img.setOnClickListener(new View.OnClickListener() {
+        c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(mcontext,"Hello mediafiles",Toast.LENGTH_LONG).show();

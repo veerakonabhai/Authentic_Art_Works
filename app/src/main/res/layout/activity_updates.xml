@@ -23,7 +23,14 @@
                     android:src="@color/colorPrimaryDark"
                     android:scaleType="fitXY"
                     android:layout_margin="5dp"/>
-
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp">
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/webview"></WebView>
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/date"
                     android:layout_width="wrap_content"

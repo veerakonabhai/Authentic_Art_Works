@@ -4,13 +4,20 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <ImageView
-        android:id="@+id/image_full"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/long2"
-        android:layout_below="@id/desc_full"
-        android:scaleType="fitCenter"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/desc_full">
+        <ImageView
+            android:id="@+id/image_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/long2"
+
+
+            android:scaleType="fitCenter"/>
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/title_full"

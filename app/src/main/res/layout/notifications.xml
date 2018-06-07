@@ -26,6 +26,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:maxLines="1"
                 android:text="name"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"

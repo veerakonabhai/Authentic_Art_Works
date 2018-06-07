@@ -14,13 +14,14 @@ public class Updates {
     String date;
     int imageid,sharecount;
 
-    public Updates(String title,int image,int likescount,int sharecount,String date,String desc,int imageid){
+    public Updates(String title,String url,int image,int likescount,int sharecount,String date,String desc,int imageid){
         this.title=title;
         this.image=image;
         this.likescount=likescount;
         this.sharecount=sharecount;
         this.date=date;
         this.desc=desc;
+        this.url=url;
         this.imageid=imageid;
     }
     public Updates(String title,String url,int likescount,int sharecount,String date,String desc,int imageid){

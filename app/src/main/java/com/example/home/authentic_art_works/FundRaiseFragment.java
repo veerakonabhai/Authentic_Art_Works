@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,19 @@ public class FundRaiseFragment extends Fragment {
         funds.add(fund);
         adapter=new FundRaiseAdapter(this.getActivity(),funds);
         lv.setAdapter(adapter);
+        final SwipeRefreshLayout mySwipeRefreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.swipeinfunds);
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        Toast.makeText(getContext(),"Refresh is called",Toast.LENGTH_LONG).show();
+
+
+
+                        mySwipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+        );
         return view;
 
     }

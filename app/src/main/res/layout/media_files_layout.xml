@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:background="@drawable/flag_transparent"
         android:layout_margin="10dp"
+        android:id="@+id/card_viewinlayout"
         android:layout_gravity="center">
         <RelativeLayout
             android:layout_height="match_parent"

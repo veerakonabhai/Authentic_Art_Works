@@ -10,6 +10,7 @@ import android.os.ParcelFileDescriptor;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class UpdatesFragment extends Fragment {
 
     ArrayList<Updates> cardlist;
     Updates updates;
-    ListView lv;
+    RecyclerView rv;
     UpdatesAdapter uadapter;
     public static Context mcontext;
  //   LinearLayoutManager lm;
@@ -61,27 +62,32 @@ public class UpdatesFragment extends Fragment {
         String filename1= "http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf";
         String filename2="http://www.axmag.com/download/pdfurl-guide.pdf";
         String filename3="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
-        updates=new Updates("ganesh",images[0],4,44,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",1);
+        updates=new Updates("ganesh","",images[0],4,44,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",1);
         cardlist.add(updates);
-        updates=new Updates("victor is a cool dude.But you should know one thing",filename1,44,444,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",0);
+        updates=new Updates("victor is a cool dude.But you should know one thing",filename1,-1,44,444,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",2);
         cardlist.add(updates);
-        updates=new Updates("ganesh",images[1],18,188,s.format(new Date()),"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday",1);
+        updates=new Updates("ganesh","",images[1],18,188,s.format(new Date()),"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.hello hwy how are you doing and whatd good  thurrasdy friday",1);
         cardlist.add(updates);
-        updates=new Updates("ganesh",filename2,80,800,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",0);
+        updates=new Updates("ganesh",filename2,-1,404,800,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",2);
         cardlist.add(updates);
 
-        updates=new Updates("veerraaa",images[2],89,899,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",1);
+        updates=new Updates("veerraaa","",images[2],89,899,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",1);
         cardlist.add(updates);
-        updates=new Updates("ganeshaaaa",filename3,400,4000,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",0);
+        updates=new Updates("ganeshaaaa",filename3,-20,400,4000,s.format(new Date()),"hello hwy how are you doing and whatd good  thurrasdy friday",2);
         cardlist.add(updates);
 
       /*  Uri uri=Uri.parse("http://kmmc.in/wp-content/uploads/2014/01/lesson2.pdf");
         Bitmap bmp=generateImageFromPdf(uri);*/
 
-   lv=(ListView)view.findViewById(R.id.listview);
+   rv=(RecyclerView)view.findViewById(R.id.recycle);
      //   lm=new LinearLayoutManager(getActivity());
         uadapter=new UpdatesAdapter(this.getActivity(),cardlist);
-        lv.setAdapter(uadapter);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
+        rv.setLayoutManager(mLayoutManager);
+        rv.setItemAnimator(new DefaultItemAnimator());
+        rv.setAdapter(uadapter);
+
+      //  lv.setAdapter(uadapter);
         final SwipeRefreshLayout sr=(SwipeRefreshLayout)view.findViewById(R.id.swiperefresh1);
         sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

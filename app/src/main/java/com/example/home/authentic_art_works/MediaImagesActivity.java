@@ -31,17 +31,17 @@ public class MediaImagesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//setHomeButtonEnabled(true);
         gv=(GridView)findViewById(R.id.gv3);
         images=new ArrayList<>();
-        image=new ActivityAdapter.Image(R.drawable.img1);
+        image=new ActivityAdapter.Image(R.drawable.img1,"scenery","Its in AlASKA");
         images.add(image);
-        image=new ActivityAdapter.Image(R.drawable.img3);
+        image=new ActivityAdapter.Image(R.drawable.img3,"SCENIC BEAUTY","SOUTHAFRICA");
         images.add(image);
-        image=new ActivityAdapter.Image(R.drawable.img1);
+        image=new ActivityAdapter.Image(R.drawable.img1,"nono","yes yes");
         images.add(image);
-        image=new ActivityAdapter.Image(R.drawable.img2);
+        image=new ActivityAdapter.Image(R.drawable.img2,"daniel bryan","yesyes man");
         images.add(image);
-        image=new ActivityAdapter.Image(R.drawable.img3);
+        image=new ActivityAdapter.Image(R.drawable.img3,"undertaker","deadman");
         images.add(image);
-        image=new ActivityAdapter.Image(R.drawable.img2);
+        image=new ActivityAdapter.Image(R.drawable.img2,"randy orton","viper");
         images.add(image);
         adapter=new ActivityAdapter(getApplicationContext(),images);
         gv.setAdapter(adapter);
@@ -56,6 +56,24 @@ class ActivityAdapter extends BaseAdapter{
 
     public static class Image{
         int id;
+        String title,desc;
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+
         public int getId() {
             return id;
         }
@@ -65,8 +83,10 @@ class ActivityAdapter extends BaseAdapter{
         }
 
 
-        Image(int id){
+        Image(int id,String title,String desc){
+            this.title=title;
             this.id=id;
+            this.desc=desc;
         }
     }
     ArrayList<Image> values;
@@ -116,6 +136,11 @@ class ActivityAdapter extends BaseAdapter{
                */
                 Intent intent = new Intent(mcontext,ImageFullActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                intent.putExtra("image",image.getId());
+                intent.putExtra("title",image.getTitle());
+                intent.putExtra("desc",image.getDesc());
+                Toast.makeText(mcontext, ""+image.getTitle()+" "+image.getDesc(), Toast.LENGTH_SHORT).show();
                 mcontext.startActivity(intent);
 
               //  Intent i=new Intent(mcontext,ImageActivity.class);

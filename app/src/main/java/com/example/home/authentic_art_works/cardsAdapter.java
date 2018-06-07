@@ -11,6 +11,7 @@ import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -173,6 +174,29 @@ public class cardsAdapter extends BaseAdapter{
                 //creating a popup menu
                 Toast.makeText(mcontext,"you are clicking",Toast.LENGTH_SHORT).show();
                 PopupMenu popup = new PopupMenu(mcontext, menu);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.card_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.hide:
+                                //handle menu1 click
+                                Toast.makeText(mcontext,"Hide",Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.remove:
+                                //handle menu2 click
+                                Toast.makeText(mcontext,"Remove",Toast.LENGTH_SHORT).show();
+                                break;
+
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
+             //   showPopupMenu(menu);
+                /*
+                PopupMenu popup = new PopupMenu(mcontext, menu);
                 //inflating menu from xml resource
                 popup.inflate(R.menu.card_menu);
                 //adding click listener
@@ -194,7 +218,7 @@ public class cardsAdapter extends BaseAdapter{
                     }
                 });
                 //displaying the popup
-                popup.show();
+                popup.show();*/
 
             }
         });
@@ -224,5 +248,29 @@ public class cardsAdapter extends BaseAdapter{
            // Glide.with(mcontext).load(c.getNumberUpdate()).into(updateimg);
 
         return itemView;
+    }
+    private void showPopupMenu(View view) {
+        // inflate menu
+        PopupMenu popup = new PopupMenu(mcontext, view);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.card_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.hide:
+                        //handle menu1 click
+                        Toast.makeText(mcontext,"Hide",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.remove:
+                        //handle menu2 click
+                        Toast.makeText(mcontext,"Remove",Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+                return false;
+            }
+        });
+        popup.show();
     }
 }

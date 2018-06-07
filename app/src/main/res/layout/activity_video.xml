@@ -5,11 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.home.authentic_art_works.VideoActivity">
-    <VideoView
+    <com.google.android.youtube.player.YouTubePlayerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/vv"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_height="wrap_content"
+        android:id="@+id/youtube"></com.google.android.youtube.player.YouTubePlayerView>
 
 </RelativeLayout>
